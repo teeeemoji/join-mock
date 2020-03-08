@@ -1,0 +1,84 @@
+{
+  "name": "join-mock",
+  "version": "1.0.0",
+  "description": "start a local mock server or apply an express middleware for mock data",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./__test__/start-server.js",
+    "dev:https": "nodemon ./__test__/start-https-server.js",
+    "test": "jest",
+    "commit": "git-cz",
+    "cs": "./node_modules/.bin/eslint --fix .",
+    "changelog": "./node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "version": "npm run changelog"
+  },
+  "bin": {
+    "join-mock": "./bin/join-mock.js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [],
+  "author": "teeeemoji",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "colors-cli": "^1.0.26",
+    "commander": "^4.1.1",
+    "copy-dir": "^1.2.0",
+    "express": "^4.17.1",
+    "hot-module-require": "^3.1.0",
+    "http-proxy": "^1.18.0",
+    "lodash": "^4.17.15",
+    "mkcert": "^1.2.0",
+    "mockjs": "^1.1.0",
+    "path-to-regexp": "^6.1.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@types/jest": "^24.0.19",
+    "babel-eslint": "^10.0.3",
+    "commitizen": "^3.1.2",
+    "conventional-changelog-cli": "^2.0.5",
+    "eslint": "^5.6.1",
+    "eslint-config-fbjs": "^3.1.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-relay": "^0.0.24",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^7.3.0",
+    "nodemon": "^2.0.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "./node_modules/.bin/eslint --fix",
+      "git add "
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/*.{js,jsx}"
+    ],
+    "coverageDirectory": "coverage",
+    "testMatch": [
+      "**/__test{s,}__/*.(spec|test).js"
+    ]
+  }
+}
